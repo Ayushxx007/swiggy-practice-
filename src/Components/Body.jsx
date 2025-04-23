@@ -2,6 +2,7 @@ import React from 'react'
 import ResCard from './ResCard';
 import { useEffect,useState } from 'react';
 import Shimmer from './Shimmer';
+import { Link } from 'react-router';
 
 const Body = () => {
 
@@ -71,7 +72,7 @@ const Body = () => {
   
           </div>
           <div className="resContainer flex p-5 m-5 flex-wrap">
-          {filteredRestaurant.map((ele)=> { return  < ResCard key={ele.info.id}obx={ele.info}/>} )}
+          {filteredRestaurant.map((ele)=> { return <Link key={ele.info.id} to={"restaurants/"+ele.info.id}> < ResCard obx={ele.info}/></Link>} )}
          
            
   
@@ -92,4 +93,4 @@ const Body = () => {
  
 }
 
-export default Body
+export default Body;
