@@ -1,7 +1,10 @@
 import React from 'react'
 import { Link } from 'react-router';
+import useOnline from '../Hooks/useOnline';
 
 const Header = () => {
+
+    const  online = useOnline();
   return (
     <div>
 
@@ -13,12 +16,13 @@ const Header = () => {
             </div>
             <div className="right">
                 <ul className="flex m-5 p-5 justify-between items-center">
+                    <li>{online ? "🟢" : "🔴"}</li> <></>
                     <li className="p-2 m-2 font-bold cursor-pointer"> <Link to="/">Home</Link></li>
                    
                 <li className="p-2 m-2 font-bold cursor-pointer">class</li>
                 <li className="p-2 m-2 font-bold cursor-pointer">   <Link to="/contact" >Contact us</Link>  </li>
                 <li className="p-2 m-2 font-bold cursor-pointer"> <Link to="/about">About us</Link></li>
-                <li className="p-2 m-2 font-bold cursor-pointer">yoyo</li></ul>
+                <li className="p-2 m-2 font-bold cursor-pointer"><Link to="/grocery">Lazy Loadinhg</Link></li></ul>
 
             </div>
 

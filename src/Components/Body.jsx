@@ -3,12 +3,14 @@ import ResCard from './ResCard';
 import { useEffect,useState } from 'react';
 import Shimmer from './Shimmer';
 import { Link } from 'react-router';
+import useOnline from '../Hooks/useOnline.js';
 
 const Body = () => {
 
   const [restaurant, setRestaurant] = useState([]);
   const[filteredRestaurant,setFilteredRestaurant]=useState([]);
   const [searchText,setSearchText] = useState("");
+  const online=useOnline();
 
   useEffect(() => {
 
@@ -39,6 +41,11 @@ const Body = () => {
   
 
   }
+
+  if(online===false){
+    return <h1 className="text-9xl">you are offline</h1>;
+  }
+
 
   if(restaurant.length==0){
     return<Shimmer/>;
