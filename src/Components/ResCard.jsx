@@ -5,7 +5,7 @@ let IMG="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_a
 const ResCard = (props) => {
 
   let {obx}=props;
-  console.log(obx);
+ 
   let {id,name,cloudinaryImageId,cuisines,avgRating,costForTwo,deliveryTime}=obx;
 
 
