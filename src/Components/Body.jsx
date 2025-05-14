@@ -1,9 +1,10 @@
 import React from 'react'
-import ResCard from './ResCard';
+import ResCard,{ withPromoted }  from './ResCard';
 import { useEffect,useState } from 'react';
 import Shimmer from './Shimmer';
 import { Link } from 'react-router';
 import useOnline from '../Hooks/useOnline.js';
+
 
 const Body = () => {
 
@@ -11,14 +12,18 @@ const Body = () => {
   const[filteredRestaurant,setFilteredRestaurant]=useState([]);
   const [searchText,setSearchText] = useState("");
   const online=useOnline();
+  const EnhancedComponent=withPromoted(ResCard);   // Higher Order Component
 
   useEffect(() => {
 
      fetcher();
+    
 
 
 
   },[]);
+  
+
 
   async function fetcher(){
 
@@ -27,8 +32,10 @@ const Body = () => {
       const json= await data.json();
      
    
-      setRestaurant(json.data.cards[4].card.card.gridElements.infoWithStyle.restaurants);
-      setFilteredRestaurant(json.data.cards[4].card.card.gridElements.infoWithStyle.restaurants);
+      setRestaurant(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+      setFilteredRestaurant(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+      
+
       
       
     }

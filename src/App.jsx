@@ -1,7 +1,7 @@
 import Header from "./Components/Header";
 import Body from "./Components/Body";
 import { createBrowserRouter,Outlet } from "react-router";
-import About from "./Components/About.jsx";
+import About  from "./Components/About.jsx";
 import Contact from "./Components/Contact.jsx";
 import Error from "./Components/Error.jsx";
 import RestaurantMenu from "./Components/RestaurantMenu.jsx";

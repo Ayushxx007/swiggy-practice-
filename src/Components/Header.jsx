@@ -1,10 +1,18 @@
 import React from 'react'
 import { Link } from 'react-router';
 import useOnline from '../Hooks/useOnline';
+import { useContext } from 'react';
+import UserContext from '../Hooks/UserContext';
 
 const Header = () => {
 
     const  online = useOnline();
+
+    const data=useContext(UserContext);
+    const {loggedInUser}=data;
+   
+ 
+
   return (
     <div>
 
@@ -22,7 +30,9 @@ const Header = () => {
                 <li className="p-2 m-2 font-bold cursor-pointer">class</li>
                 <li className="p-2 m-2 font-bold cursor-pointer">   <Link to="/contact" >Contact us</Link>  </li>
                 <li className="p-2 m-2 font-bold cursor-pointer"> <Link to="/about">About us</Link></li>
-                <li className="p-2 m-2 font-bold cursor-pointer"><Link to="/grocery">Lazy Loadinhg</Link></li></ul>
+                <li className="p-2 m-2 font-bold cursor-pointer"><Link to="/grocery">Lazy Loadinhg</Link></li>
+                <li>{loggedInUser}</li>
+                </ul>
 
             </div>
 

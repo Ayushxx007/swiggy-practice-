@@ -1,17 +1,17 @@
 import React from 'react'
+import { useContext } from 'react';
+import UserContext from '../Hooks/UserContext';
 
 let IMG="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/";
 
 const ResCard = (props) => {
 
+  const {loggedInUser}=useContext(UserContext);
+
+
   let {obx}=props;
  
   let {id,name,cloudinaryImageId,cuisines,avgRating,costForTwo,deliveryTime}=obx;
-
-
-
- 
-
 
   return (
     <div>
@@ -29,6 +29,7 @@ const ResCard = (props) => {
 
             </div>
             <div className="flex justify-center items-center m-1 p-1">{costForTwo}</div>
+            <div>{loggedInUser}</div>
             
        
         </div>
@@ -37,4 +38,36 @@ const ResCard = (props) => {
   )
 }
 
-export default ResCard
+// higher order component takes a component and return an Enhanced Component.
+
+export const withPromoted=( ResCard)=>{
+
+  return ()=>{
+
+    return (
+      <div>
+        <label>Promoted</label>
+        <resCard/>
+
+      </div>
+
+
+
+    )
+
+   
+
+
+
+
+
+  }
+
+
+}
+
+
+
+
+
+export default ResCard;
